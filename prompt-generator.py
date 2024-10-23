@@ -24,7 +24,7 @@ st.markdown("## Prompt Generator")
 st.markdown("### Generate the perfect prompt for your AI model")
 
 def generate_response(meta_prompt, task_or_prompt, model):
-    return client.chat.completions.create(
+    completion = client.chat.completions.create(
         model=model,
         messages=[
             {
@@ -37,6 +37,8 @@ def generate_response(meta_prompt, task_or_prompt, model):
             },
         ],
     )
+
+    return completion.choices[0].message.content
 
 def update_meta_prompt():
     st.session_state["selected_meta_prompt"] = TEXT_OUTPUT_PROMPT if st.session_state["selected_option"] == 'Text prompt' else AUDIO_OUTPUT_PROMPT
@@ -55,4 +57,4 @@ with st.form('my_form'):
     submitted = st.form_submit_button('Generate')
     if submitted:
         with st.spinner('Generating LLM response...'):
-            st.info(generate_response(chosen_meta_prompt, task_goal_or_prompt, open_ai_model).content)
+            st.info(generate_response(chosen_meta_prompt, task_goal_or_prompt, open_ai_model))

@@ -19,7 +19,7 @@ AUDIO_OUTPUT_PROMPT = config["audio_meta_prompt"].strip()
 client = OpenAI()
 openai_api_key = os.environ.get('OPENAI_API_KEY')
 
-st.set_page_config(layout="centered", page_title="Prompt Generator")
+st.set_page_config(layout="wide", page_title="Prompt Generator")
 st.markdown("## Prompt Generator")
 st.markdown("### Generate the perfect prompt for your AI model")
 
@@ -49,8 +49,8 @@ with st.form('my_form'):
     open_ai_model = st.selectbox('Which OpenAI model should we use?', ('gpt-4o', 'gpt-4o-mini', 'o1-preview', 'o1-mini'))
 
     # Adjust chosen_meta_prompt based on session state logic
-    chosen_meta_prompt = st.text_area('Meta Prompt:', value=st.session_state["selected_meta_prompt"], height=220)  # Initial value can be empty
-    task_goal_or_prompt = st.text_area('Task, Goal or Prompt:', value="", height=400)
+    chosen_meta_prompt = st.text_area('Meta Prompt:', value=st.session_state["selected_meta_prompt"], height=400)  # Initial value can be empty
+    task_goal_or_prompt = st.text_area('Task, Goal or Prompt:', value="", height=300)
 
     submitted = st.form_submit_button('Generate')
     if submitted:

@@ -3,11 +3,6 @@ import json
 from openai import OpenAI
 import streamlit as st
 
-# instructions
-# Store your OpenAI key in env var OPENAI_API_KEY
-# pip install openai langchain streamlit
-# streamlit run prompt-generator.py
-
 # Load configuration from JSON file
 with open("config.json", "r") as config_file:
     config = json.load(config_file)

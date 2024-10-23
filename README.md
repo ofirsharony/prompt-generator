@@ -65,9 +65,3 @@ This project is licensed under the MIT-0 License. See the LICENSE file for more 
 ## Contributing
 
 Contributions are welcome! Please fork the repository and submit a pull request.
-
-## Contact
-
-For any questions or issues, please contact [your-email@example.com].
-
-
